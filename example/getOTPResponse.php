@@ -5,6 +5,7 @@ $oSMS = new otpSMScallback($_REQUEST);
 echo $oSMS->getMobile();
 echo $oSMS->getCreateTime();
 echo $oSMS->getExpiryTime();
+echo $oSMS->getRetryAfter();
 echo $oSMS->getOtp();
 echo $oSMS->getType();
 echo $oSMS->getMethod();
@@ -53,6 +54,7 @@ class otpSMScallback {
         $this->mobile = $REQUEST['mobile'];//recipient mobile number
         $this->createTime = $REQUEST['createTime'];//time in unix format
         $this->expiryTime = $REQUEST['expiryTime'];//time in unix format
+        $this->retryAfter = $REQUEST['retryAfter'];//time in unix format
         $this->otp = $REQUEST['otp'];//otp code
         $this->type = $REQUEST['type'];//new|existing
         $this->method = $REQUEST['method'];//generate|verify
@@ -72,6 +74,10 @@ class otpSMScallback {
         return $this->expiryTime;
     }
 
+    function getRetryAfter() {
+        return $this->retryAfter;
+    }
+    
     function getOtp() {
         return $this->otp;
     }
