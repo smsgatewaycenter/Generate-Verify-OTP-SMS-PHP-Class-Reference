@@ -44,6 +44,7 @@ class otpSMScallback {
     private $mobile;
     private $createTime;
     private $expiryTime;
+    private $retryAfter;
     private $otp;
     private $type;
     private $method;
