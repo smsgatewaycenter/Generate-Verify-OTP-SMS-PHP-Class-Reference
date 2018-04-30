@@ -261,7 +261,7 @@ class psmplSMSGatewayCenter {
      */
 
     function setRetryExpiry($retryexpiry) {
-        $this->$retryexpiry = $retryexpiry;
+        $this->retryexpiry = $retryexpiry;
     }
     
     /*
