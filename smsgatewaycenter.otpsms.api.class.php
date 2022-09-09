@@ -31,7 +31,7 @@ class psmplSMSGatewayCenter {
       |
      */
 
-    const OTPSMSAPI = "http://www.smsgateway.center/OTPApi/"; // API End Point
+    const OTPSMSAPI = "https://www.smsgateway.center/OTPApi/"; // API End Point
     const PARAM_APIKEY = "apiKey";
     const PARAM_USERID = "userId";
     const PARAM_PASSWORD = "password";
@@ -421,6 +421,10 @@ class psmplSMSGatewayCenter {
 
     private function baseSGCRequest($api, $sendtype, $param = array()) {
         $apiEndPoint = $api . $sendtype;
+        if('userId' == $this->userId){
+          echo 'You need to change your userId and password parameter';
+          return;
+        }
         $param[psmplSMSGatewayCenter::PARAM_USERID] = $this->userId;
         $param[psmplSMSGatewayCenter::PARAM_PASSWORD] = $this->password;
         $param[psmplSMSGatewayCenter::PARAM_FORMAT] = $this->format == "" ? psmplSMSGatewayCenter::FORMAT_PLAIN : $this->format;
